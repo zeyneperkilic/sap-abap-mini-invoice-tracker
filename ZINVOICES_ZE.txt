@@ -1,0 +1,33 @@
+TABLE: ZINVOICES_ZE
+
+Description: Invoice records table for tracking supplier invoices.
+
+Fields:
+---------------------------------------------------------------------
+| Field Name   | Data Type | Length  | Key | Description            |
+|--------------|-----------|---------|-----|------------------------|
+| INVOICE_ID   | CHAR      | 10      | ✅  | Invoice number         |
+| SUPPLIER     | CHAR      | 30      |     | Supplier name          |
+| AMOUNT       | DEC       | 13,2    |     | Invoice amount         |
+| INVOICE_DATE | DATS      | 8       |     | Date of invoice        |
+| DUE_DATE     | DATS      | 8       |     | Due date for payment   |
+| STATUS       | CHAR      | 1       |     | Payment status         |
+
+STATUS Fixed Values:
+--------------------
+| Value | Description |
+|-------|-------------|
+| U     | Unpaid      |
+| P     | Paid        |
+| L     | Late        |
+
+Technical Settings:
+--------------------
+- Delivery Class: A (Application Table)
+- Data Browser/Table View Maint.: Allowed with restrictions
+- Table Maintenance Generator: Active
+
+Linked Programs:
+----------------
+- ZE_INVOICE_INPUT  → For invoice creation
+- ZE_INVOICE_LIST   → ALV report (REUSE_ALV_GRID_DISPLAY)
